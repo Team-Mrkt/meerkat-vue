@@ -1,0 +1,115 @@
+$containerColor: #544743;
+$navColor: #FFFBF9;
+$inputColor: #FFF4F0;
+$sectionColor: #E2C7BC;
+
+html {
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+.header {
+    padding: 14px 50px 14px 48px;
+    background-color: $navColor;
+    display: flex;
+    justify-content: space-between;
+    .header_buttons {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        >p {
+            margin-bottom: 0;
+        }
+        .header_signup_button {
+            background-color: $containerColor;
+            padding: 10px 32px;
+            color: $navColor;
+            border-radius: 5px;
+        }
+    }
+}
+
+.intro {
+    padding-top: 52px;
+    padding-left: 48px;
+    padding-right: 170px;
+    position: relative;
+    .about_meerkat {
+        font-weight: 500;
+        font-size: 32px;
+        color: $containerColor;
+    }
+    .more_info_meerkat {
+        font-size: 16px;
+        color: $containerColor;
+        margin-bottom: 78px;
+    }
+    .big_logo {
+        position: absolute;
+        top: 240px; 
+        width: 320px;
+        z-index: -1000;
+        margin-left: -88px;
+
+    }
+    .quick_report_button {
+        padding: 12px 32px;
+        background-color: $containerColor;
+        color: #FFFFFF;
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 5px;
+        margin-right: 32px;
+    }
+    .homepage_signup_button {
+        border: 1px solid $containerColor;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        padding: 12px 43px;
+        font-size: 20px;
+        color: #636161;
+    }
+}
+
+.homepage_inputs {
+    padding: 24px 48px;
+    background-color: $containerColor;
+    .trending_text {
+        color: $sectionColor;
+        margin-bottom: 20px;
+    }
+    .search_incident_input {
+        padding: 12px 16px;
+        background-color: $sectionColor;
+        border-radius: 100px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .areas {
+        height: 105px; 
+        width: 100%;
+        display: flex;
+        margin-bottom: 20px;
+        .areas_1 {
+            background-color: $inputColor;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            padding: 20px;
+            width: 45%;
+            >p {
+                font-size: 16px; 
+                color: $containerColor;
+            }
+            
+        }
+        .areas_2 {
+            background-color: $sectionColor;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            width: 55%;
+            height: 100%;
+        }
+    }
+}
