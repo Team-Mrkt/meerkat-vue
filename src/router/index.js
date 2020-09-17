@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Homepage from '../views/Homepage.vue'
+import QuickReport from '../views/QuickReport.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +12,16 @@ const routes = [
     path: '/',
     name: 'Homepage',
     component: Homepage
+  },
+  {
+    path: '/QuickReport',
+    name: 'QuickReport',
+    component: QuickReport
+  },
+  {
+    path: '/About',
+    name: 'About',
+    component: About
   },
   // {
   //   path: '/about',

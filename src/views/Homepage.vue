@@ -1,17 +1,19 @@
 <template>
     <diiv>
-        <Header />
-        <section class="row" style="height: 100vh;">
+        <Nav />
+        <div class="row content_container">
             <section class="col-md-8 intro">
                 <p class="about_meerkat">Meerkat is the fast way to report and explore community incidents</p>
                 <p class="more_info_meerkat">With Location GPS, Photos and short descriptions, you can keep your community aware of issues that needs to be addressed and potential harmful incidence.</p>
-                <img src="@/assets/img/bigLogo.png" class="big_logo" />
-                <button class="quick_report_button">
-                    Quick Report
-                </button>
-                <button class="homepage_signup_button">
-                    Sign up
-                </button>
+                <div class="homepage_button_holder">
+                    <button class="quick_report_button btn_1">
+                        Quick Report
+                    </button>
+                    <button class="homepage_signup_button">
+                        Sign up
+                    </button>
+                </div>
+                
 
             </section>
             <section class="col-md-4 homepage_inputs">
@@ -45,22 +47,23 @@
                     </div>
                 </div>
             </section>
-        </section>
+        </div>
     </diiv>
 </template>
 
 <script>
 
-import Header from '@/components/Header.vue'
+import Nav from '@/components/Nav.vue'
+import bigLogo from '@/assets/img/bigLogo.png'
 
 export default {
     name: "Homepage",
     components: {
-        Header
+        Nav,
     },
     data() {
         return {
-
+            bigLogo
         }
     }, 
     created() {
