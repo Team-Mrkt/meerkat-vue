@@ -3,8 +3,10 @@
         <Nav />
         <div class="row content_container">
             <section class="side_meerkat_container col-md-4">
-                <p>“Community Safety is essential for peoples’ quality of life and it is on of the first things people check when judging a city”</p>
-                <p class="quick_margin_bottom quote_author">-STEVE FRADY</p>
+                <div class="side_meerkat_text_container">
+                    <p class="side_meerkat_text">“Community Safety is essential for peoples’ quality of life and it is on of the first things people check when judging a city”</p>
+                    <p class="quick_margin_bottom quote_author side_meerkat_text">-STEVE FRADY</p>
+                </div>
                 <div class="quickreport_image_holder">
                 </div>
             </section>

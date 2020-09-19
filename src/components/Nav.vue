@@ -18,12 +18,12 @@
             ><p>Quick Report</p>
             </router-link>
             <router-link 
-                :to="{ name: 'Homepage' }" 
+                :to="{ name: 'SignIn' }" 
                 class="vue_router_link"
             ><p>Sign In</p>
             </router-link>
             <router-link 
-                :to="{ name: 'Homepage' }" 
+                :to="{ name: 'SignUp' }" 
                 class="vue_router_link"
             >
                 <button class="header_signup_button">Sign up</button>

@@ -4,7 +4,9 @@
         <Nav />
         <div class="row content_container">
             <section class="side_meerkat_container col-md-4">
-                <p class="quick_margin_bottom">We want to help Citizens with insights to reveal regular issues, predict potential incidence and be one step away from danger.</p>
+                <div class="side_meerkat_text_container">
+                    <p class="quick_margin_bottom side_meerkat_text">We want to help Citizens with insights to reveal regular issues, predict potential incidence and be one step away from danger.</p>
+                </div>
                 <div class="quickreport_image_holder">
                 </div>
             </section>

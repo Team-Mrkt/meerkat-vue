@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import Homepage from '../views/Homepage.vue'
 import QuickReport from '../views/QuickReport.vue'
 import About from '../views/About.vue'
+import SignUp from '../views/SignUp.vue'
+import SignIn from '../views/SignIn.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +24,16 @@ const routes = [
     path: '/About',
     name: 'About',
     component: About
+  },
+  {
+    path: '/SignUp',
+    name: 'SignUp',
+    component: SignUp
+  },
+  {
+    path: '/SignIn',
+    name: 'SignIn',
+    component: SignIn
   },
   // {
   //   path: '/about',
