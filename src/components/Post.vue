@@ -1,5 +1,5 @@
 <template>
-  <div class="single_feed_container">
+  <div class="single_feed_container post_page_container">
         <div class="post_head">
             <img />
             <div class="name_holder">

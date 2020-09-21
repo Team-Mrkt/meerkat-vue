@@ -7,6 +7,8 @@ import About from '../views/About.vue'
 import SignUp from '../views/SignUp.vue'
 import SignIn from '../views/SignIn.vue'
 import Feed from '../views/Feed.vue'
+import PostDetails from '../views/PostDetails.vue'
+import Search from '../views/Search.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +42,16 @@ const routes = [
     path: '/Feed',
     name: 'Feed',
     component: Feed
+  },
+  {
+    path: '/PostDetails',
+    name: 'PostDetails',
+    component: PostDetails
+  },
+  {
+    path: '/Search',
+    name: 'Search',
+    component: Search
   },
   // {
   //   path: '/about',

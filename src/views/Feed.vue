@@ -1,7 +1,7 @@
 <template>
     <div class="general_container">
         <Sidebar />
-        <section class="feed_content_container">
+        <section class="right_content_container">
             <div class="feed_container_info">
                 <div class="feed_search_input">
                     <img src="@/assets/img/search.png" />

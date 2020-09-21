@@ -486,76 +486,81 @@ p {
 }
 
 
-/*** Feeds ***/
+/*** Right content after sidebar ***/
 
-.feed_content_container {
+.right_content_container {
     padding: 18px 0;
     width: 85%;
     margin-left: 15%;
-    .feed_container_info {
-        width: 60%;
-        margin: 0 auto;
-        .feed_search_input {
-            display: inline-block;
-            position: relative;
-            width: 100%;
-            margin-bottom: 46px;
-            img {
-                position: absolute; 
-                top: 8px; 
-                left: 32px;
-            }
-            .search_incidents {
-                top: 0;
-                left: 0;
-                width: 100%;
-                padding: 8px 72px;
-                border-radius: 100px;
-                background-color: $inputColor;
-                outline-width: 0;
-                border: none;
-            }
+}
+
+
+/*** Feeds ***/
+
+.feed_container_info {
+    width: 60%;
+    margin: 0 auto;
+    .feed_search_input {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        margin-bottom: 46px;
+        img {
+            position: absolute; 
+            top: 8px; 
+            left: 32px;
         }
-        .feed_incident_description {
-            height: 230px;
+        .search_incidents {
+            top: 0;
+            left: 0;
             width: 100%;
-            background-color: $whiteColor;
-            box-shadow: 0px 0px 2px rgba(84, 71, 67, 0.25);
-            border-radius: 5px;
-            padding: 16px 33px;
-            margin-bottom: 32px;
-            .feed_upload_button_holder {
-                display: flex; 
-                justify-content: flex-end;
-                .feed_upload_button {
-                    padding: 4px 12px;
-                    border-radius: 25px;
-                    background-color: $navColor;
-                    border: 1px solid $uploadColor;
-                    font-size: 12px;
-                    color: $uploadColor;
-                    text-align: right;
-                }
-            }
-            textarea {
-                border: 0;
-                outline-width: 0;
-                width: 100%;
-                border-bottom: 1px solid $sectionColor;
-            }
+            padding: 8px 72px;
+            border-radius: 100px;
+            background-color: $inputColor;
+            outline-width: 0;
+            border: none;
         }
     }
-    
+    .feed_incident_description {
+        height: 230px;
+        width: 100%;
+        background-color: $whiteColor;
+        box-shadow: 0px 0px 2px rgba(84, 71, 67, 0.25);
+        border-radius: 5px;
+        padding: 16px 33px;
+        margin-bottom: 32px;
+        .feed_upload_button_holder {
+            display: flex; 
+            justify-content: flex-end;
+            .feed_upload_button {
+                padding: 4px 12px;
+                border-radius: 25px;
+                background-color: $navColor;
+                border: 1px solid $uploadColor;
+                font-size: 12px;
+                color: $uploadColor;
+                text-align: right;
+            }
+        }
+        textarea {
+            border: 0;
+            outline-width: 0;
+            width: 100%;
+            border-bottom: 1px solid $sectionColor;
+        }
+    }
 }
 
 
 /*** Post ***/
 
 .single_feed_container {
-    background-color: $whiteColor;
-    box-shadow: 0px 0px 2px rgba(84, 71, 67, 0.25);
-    border-radius: 5px;
-    padding: 32px;
+    &.post_page_container {
+        background-color: $whiteColor;
+        box-shadow: 0px 0px 2px rgba(84, 71, 67, 0.25);
+        border-radius: 5px;
+        padding: 32px;
+    }
     .post_head {
         display: flex; 
         height: 40px;
@@ -577,7 +582,7 @@ p {
     }
     .post_title {
         color: $primaryColor;
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 12px;
     }
     .post_images {
@@ -665,4 +670,71 @@ p {
             width: 119px; 
         }
     }
+}
+
+
+/*** Back Arrow ***/
+
+.back_arrow {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+/*** Post Details Page ***/
+
+.page_details_padding {
+    padding-top: 45px;
+    width: 60%;
+    margin: 0 auto;
+    textarea {
+        margin-top: 32px;
+    }
+    .post_comments_holder {
+        .post_comment {
+            display: flex; 
+            img {
+                width: 40px;
+                height: 40px;
+                margin-right: 16px;
+                border-radius: 50%;
+            }
+            .post_comment_info {
+                display: flex;
+                flex-direction: column;
+                // justify-content: space-between;
+                .post_comment_head {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 16px;
+                    .post_comment_name {
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: $blackColor;
+                    }
+                    .post_comment_date {
+                        font-size: 10px;
+                        color: $blackColor;
+                    }
+                }
+                .post_comment_text {
+                    font-size: 12px;
+                    color: $blackColor;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*** Search Page ***/
+
+.search_page {
+    padding-top: 45px;
+    width: 60%;
+    margin: 0 auto;
 }
