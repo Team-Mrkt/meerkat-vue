@@ -6,6 +6,7 @@ import QuickReport from '../views/QuickReport.vue'
 import About from '../views/About.vue'
 import SignUp from '../views/SignUp.vue'
 import SignIn from '../views/SignIn.vue'
+import Feed from '../views/Feed.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/SignIn',
     name: 'SignIn',
     component: SignIn
+  },
+  {
+    path: '/Feed',
+    name: 'Feed',
+    component: Feed
   },
   // {
   //   path: '/about',
