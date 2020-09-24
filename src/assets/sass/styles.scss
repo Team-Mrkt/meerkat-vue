@@ -3,16 +3,27 @@ $navColor: #FFFBF9;
 $inputColor: #FFF4F0;
 $sectionColor: #E2C7BC;
 $uploadColor: #CEB1A6;
+$addBorderColor: #FCE4DE;
 $whiteColor: #FFFFFF;
 $blackColor: #000000;
 $googleButton: #EB4335;
 $twitterButton: #55ACEE;
-// $rightSectionBackgroundColor: #E5E5E5;
 
 html {
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
     box-sizing: border-box;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 10px;
 }
 
 
@@ -47,6 +58,12 @@ p {
     border-radius: 5px;
     font-size: 14px;
     font-weight: 500;
+}
+
+.btn_3 {
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px 16px;
 }
 
 /*** Nav ***/
@@ -209,7 +226,6 @@ p {
         background-size: 30vh auto;
         height: 57vh;
         margin-left: -48px;
-        // padding: 48px;
         object-fit: cover;
     }
 }
@@ -266,7 +282,7 @@ p {
 }
 
 
-// shared by quick report and feed pages
+/** shared by quick report and feed pages ***/
 
 .report_quick_report {
     margin-top: 16px;
@@ -312,6 +328,9 @@ p {
 }
 
 
+/*** Modals ***/
+
+
 /*** Report Successfult Modal ***/
 
 .report_successful_modal {
@@ -348,6 +367,73 @@ p {
             background-color: $whiteColor;
             color: $primaryColor;
         }
+    }
+}
+
+
+/*** Add New Location Modal ***/
+
+.profile_modals {
+    height: 100%;
+    padding: 32px;
+    background-color: $whiteColor;
+    display: flex;
+    flex-direction: column;
+    h3 {
+        font-size: 16px;
+        font-weight: 500;
+        color: $primaryColor;
+        margin-bottom: 32px;
+    }
+    .input_location_holder {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 16px;
+        &.registerd_location {
+            margin-bottom: 30px;
+            &.edit_account_info_input {
+                margin-bottom: 16px;
+            }
+            input {
+                width: 100%;
+            }
+            p {
+                font-size: 14px;
+                color: #E73737;
+                margin-left: 16px;
+            }
+        }
+        label {
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: $primaryColor;
+        }
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .profile_input_select {
+                padding: 11px 16px;
+                background-color: $inputColor;
+                border: 1px solid $addBorderColor;
+                border-radius: 5px;
+                font-size: 14px;
+                color: $primaryColor;
+            }
+            select {
+                width: 31%;
+            }
+        }
+        
+    }
+    button {
+        color: $whiteColor;
+        padding: 11px 30px;
+        background-color: $primaryColor;
+        margin: 0 auto;
+        margin-top: 20px;
     }
 }
 
@@ -458,7 +544,7 @@ p {
 /*** Sidebar ***/
 
 .sidebar_container {
-    width: 15%;
+    width: 286px;
     padding: 12px 24px;
     background-color: $navColor;
     border: 1px solid $sectionColor;
@@ -490,8 +576,8 @@ p {
 
 .right_content_container {
     padding: 18px 0;
-    width: 85%;
-    margin-left: 15%;
+    width: 100%;
+    margin-left: 286px;
 }
 
 
@@ -705,7 +791,6 @@ p {
             .post_comment_info {
                 display: flex;
                 flex-direction: column;
-                // justify-content: space-between;
                 .post_comment_head {
                     display: flex;
                     justify-content: space-between;
@@ -738,3 +823,65 @@ p {
     width: 60%;
     margin: 0 auto;
 }
+
+
+/*** Profile Page ***/
+
+.profile_container {
+    width: 60%;
+    margin: 0 auto;
+    .profile_header_text {
+        font-size: 16px;
+        font-weight: 500;
+        color: $primaryColor;
+        margin-bottom: 16px;
+    }
+    .information_holder {
+        border: 1px solid $sectionColor;
+        border-radius: 5px;
+        background-color: $whiteColor;
+        width: 100%;
+        padding: 32px;
+        .personal_info_holder {
+            display: flex; 
+            padding-bottom: 29px;
+            border-bottom: 1px solid $sectionColor;
+            img {
+                width: 60px;
+                height: 60px;
+                margin-right: 24px;
+                border-radius: 50%;
+            }
+            .name_location_holder {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .user_name {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $primaryColor;
+                }
+                .user_location {
+                    font-size: 14px;
+                    color: $primaryColor;
+                }
+            }
+        }
+        .profile_buttons_holder {
+            margin-top: 16px;
+            display: flex; 
+            justify-content: flex-end;
+            .add_location_button {
+                background-color: $navColor;
+                border: 1px solid $primaryColor;
+                color: $primaryColor;
+                margin-right: 8px;
+            }
+            .edit_account_button {
+                background-color: $primaryColor;
+                color: $navColor;
+            }
+        }
+    }
+}
+

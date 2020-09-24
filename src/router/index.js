@@ -9,6 +9,7 @@ import SignIn from '../views/SignIn.vue'
 import Feed from '../views/Feed.vue'
 import PostDetails from '../views/PostDetails.vue'
 import Search from '../views/Search.vue'
+import Profile from '../views/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,11 @@ const routes = [
     path: '/Search',
     name: 'Search',
     component: Search
+  },
+  {
+    path: '/Profile',
+    name: 'Profile',
+    component: Profile
   },
   // {
   //   path: '/about',
