@@ -8,6 +8,20 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'App',
+  created() {
+
+  }, 
+  methods: {
+    checkLocal() {
+      
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 @import "@/assets/sass/styles.scss";
 </style>

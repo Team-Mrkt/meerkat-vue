@@ -1,17 +1,20 @@
 <template>
-    <diiv>
+    <div>
         <Nav />
         <div class="row content_container">
             <section class="col-md-8 intro">
                 <p class="about_meerkat">Meerkat is the fast way to report and explore community incidents</p>
                 <p class="more_info_meerkat">With Location GPS, Photos and short descriptions, you can keep your community aware of issues that needs to be addressed and potential harmful incidence.</p>
                 <div class="homepage_button_holder">
-                    <button class="quick_report_button btn_1">
+                    <!-- <button class="quick_report_button btn_1">
                         Quick Report
-                    </button>
-                    <button class="homepage_signup_button">
-                        Sign up
-                    </button>
+                    </button> -->
+                    <router-link :to="{ name: 'QuickReport' }" class="quick_report_button btn_1 vue_router_link">
+                        Quick Report
+                    </router-link>
+                    <router-link :to="{ name: 'SignUp' }" class="homepage_signup_button vue_router_link">
+                        Sign Up
+                    </router-link>
                 </div>
                 
 
@@ -48,7 +51,7 @@
                 </div>
             </section>
         </div>
-    </diiv>
+    </div>
 </template>
 
 <script>

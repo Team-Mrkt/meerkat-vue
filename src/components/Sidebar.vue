@@ -3,10 +3,14 @@
         <img src="@/assets/img/smallLogo.png" />
         <div class="sidebar_links_container">
             <div>
-                <p>Live feed</p>
+                <router-link :to="{ name: 'Feed' }" class="vue_router_link sidebar_links">
+                    Live Feed
+                </router-link>
             </div>
             <div>
-                <p>Profile</p>
+                <router-link :to="{ name: 'Profile' }" class="vue_router_link sidebar_links">
+                    Profile
+                </router-link>
             </div>
         </div>
     </div>

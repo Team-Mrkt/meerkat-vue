@@ -17,47 +17,74 @@ const routes = [
   {
     path: '/',
     name: 'Homepage',
-    component: Homepage
+    component: Homepage,
+    meta: {
+      guest: true
+    }
   },
   {
     path: '/QuickReport',
     name: 'QuickReport',
-    component: QuickReport
+    component: QuickReport,
+    meta: {
+      guest: true
+    }
   },
   {
     path: '/About',
     name: 'About',
-    component: About
+    component: About,
+    meta: {
+      guest: true
+    }
   },
   {
-    path: '/SignUp',
+    path: '/Sign-Up',
     name: 'SignUp',
-    component: SignUp
+    component: SignUp,
+    meta: {
+      guest: true
+    }
   },
   {
-    path: '/SignIn',
+    path: '/Sign-In',
     name: 'SignIn',
-    component: SignIn
+    component: SignIn,
+    meta: {
+      guest: true
+    }
   },
   {
     path: '/Feed',
     name: 'Feed',
-    component: Feed
+    component: Feed,
+    meta: {
+      authorize: true
+    }
   },
   {
-    path: '/PostDetails',
+    path: '/Feeds/:id',
     name: 'PostDetails',
-    component: PostDetails
+    component: PostDetails,
+    meta: {
+      authorize: true
+    }
   },
   {
     path: '/Search',
     name: 'Search',
-    component: Search
+    component: Search,
+    meta: {
+      authorize: true
+    }
   },
   {
     path: '/Profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      authorize: true
+    }
   },
   // {
   //   path: '/about',
@@ -73,6 +100,45 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(rec => rec.meta.authorize)) {
+    // Authorized Pages will be handled here
+    if (!localStorage.getItem('userDetails')) {
+      next({ name: 'Homepage', params: { nextUrl: to.fullPath } })
+    } else {
+      next()
+    }
+  } else if (to.matched.some(rec => rec.meta.guest)) {
+    if (!localStorage.getItem('userDetails')) {
+      // if (!from.name) {
+      //   if (!to.params.nextUrl) {
+      //     console.log('none at all')
+      //     next()
+      //   } else {
+      //     console.log('e dey')
+      //     next({ params: { nextUrl: from.params.nextUrl }})
+      //   }
+      // } else if (from.name) {
+      //   if (!from.params.nextUrl) {
+      //     console.log('none')
+      //     next()
+      //   } else {
+      //     console.log('e dey')
+      //     next({ name: to.name, params: { nextUrl: from.params.nextUrl }})
+      //   }
+      // } else {
+      //   next()
+      // }
+      next()
+    } else {
+      next({ name: 'Feed'})
+    }
+  } else {
+    next();
+  }
 })
 
 export default router

@@ -15,6 +15,24 @@ html {
     box-sizing: border-box;
 }
 
+// Upload File Bootstrap Input 
+.custom-file {
+    width: 45%;
+}
+
+.custom-file-label {
+    color: $uploadColor;
+    border: 1px solid $uploadColor;
+}
+
+// 
+
+// button loading
+.loading {
+    cursor: not-allowed !important;
+    background-color: rgb(196, 188, 188) !important;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
@@ -32,11 +50,53 @@ p {
     margin-bottom: 0;
 }
 
+/*** Centralizing Loader ***/
+.cent_loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.feed_upload_button {
+    padding: 4px 12px;
+    border-radius: 25px;
+    background-color: $navColor;
+    border: 1px solid $uploadColor;
+    font-size: 12px;
+    color: $uploadColor;
+    text-align: right;
+    &:hover {
+        color: $primaryColor;
+    }
+}
 
 /*** Router link class ***/
 .vue_router_link {
     &:hover {
         text-decoration: none;
+    }
+    &.sidebar_links {
+        color: $primaryColor;
+        &:hover {
+            color:  #0e0d0d;
+        }
+    }
+}
+
+/**** Quick Report Button ***/
+.quick_report_button {
+    background-color: $primaryColor;
+    color: $whiteColor;
+    margin-right: 32px;
+    width: 180px;
+    height: 54px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        color: $whiteColor;
     }
 }
 
@@ -128,6 +188,7 @@ p {
         margin-left: -48px;
         padding: 48px;
         object-fit: cover;
+        display: flex;
         .big_logo {
             position: absolute;
             top: 240px; 
@@ -136,19 +197,27 @@ p {
             margin-left: -88px;
     
         }
-        .quick_report_button {
-            padding: 12px 32px;
-            background-color: $primaryColor;
-            color: $whiteColor;
-            margin-right: 32px;
-        }
+        // .quick_report_button {
+        //     background-color: $primaryColor;
+        //     color: $whiteColor;
+        //     margin-right: 32px;
+        //     width: 180px;
+        //     height: 54px;
+        //     display: flex; 
+        //     justify-content: center;
+        //     align-items: center;
+        // }
         .homepage_signup_button {
             border: 1px solid $primaryColor;
             background-color: $whiteColor;
             border-radius: 5px;
-            padding: 12px 43px;
             font-size: 20px;
             color: #636161;
+            width: 180px;
+            height: 54px;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
         }
     }
 }
@@ -289,9 +358,15 @@ p {
     display: flex; 
     align-items: center;
     justify-content: space-between;
-    div {
+    .report_quick_report_content {
         display: flex;
         align-items: center;
+        input {
+            position: absolute;
+            width: 46px;
+            height: 25px;
+            z-index: -10
+        }
         .quick_report_check {
             background-color: $primaryColor;
             border-radius: 15px;
@@ -319,7 +394,10 @@ p {
         }
     }
     button {
-        padding: 11px 32px;
+        // padding: 11px 32px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        width: 156px;
         background-color: $primaryColor;
         border-radius: 5px;
         color: $whiteColor;
@@ -355,10 +433,8 @@ p {
         display: flex;
         justify-content: space-between;
         .report_successful_modal_create_account {
-            width: 270px;
-            padding: 16px 47px;
-            background-color: $primaryColor;
-            color: $whiteColor;
+            width: 266px;
+            height: 62px;
         }
         .report_successful_modal_no_thanks {
             width: 182px;
@@ -512,7 +588,7 @@ p {
             width: 100%;
             padding-top: 9px;
             padding-bottom: 9px;
-            margin: 16px 0 ;
+            margin: 16px 0;
         }
         .or_sign_up_with {
             color: $primaryColor;
@@ -608,7 +684,7 @@ p {
         }
     }
     .feed_incident_description {
-        height: 230px;
+        height: 315px;
         width: 100%;
         background-color: $whiteColor;
         box-shadow: 0px 0px 2px rgba(84, 71, 67, 0.25);
@@ -618,15 +694,15 @@ p {
         .feed_upload_button_holder {
             display: flex; 
             justify-content: flex-end;
-            .feed_upload_button {
-                padding: 4px 12px;
-                border-radius: 25px;
-                background-color: $navColor;
-                border: 1px solid $uploadColor;
-                font-size: 12px;
-                color: $uploadColor;
-                text-align: right;
-            }
+            // .feed_upload_button {
+            //     padding: 4px 12px;
+            //     border-radius: 25px;
+            //     background-color: $navColor;
+            //     border: 1px solid $uploadColor;
+            //     font-size: 12px;
+            //     color: $uploadColor;
+            //     text-align: right;
+            // }
         }
         textarea {
             border: 0;
@@ -647,22 +723,26 @@ p {
         border-radius: 5px;
         padding: 32px;
     }
-    .post_head {
+    .single_post_head {
         display: flex; 
-        height: 40px;
-        margin-bottom: 25px;
-        .name_holder {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            .cus_name {
-                font-size: 14px;
-                font-weight: 500;
-                color: $primaryColor;
-            }
-            .post_date {
-                font-size: 10px;
-                color: $uploadColor;
+        justify-content: space-between;
+        .post_head {
+            display: flex; 
+            height: 40px;
+            margin-bottom: 25px;
+            .name_holder {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                .cus_name {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $primaryColor;
+                }
+                .post_date {
+                    font-size: 10px;
+                    color: $uploadColor;
+                }
             }
         }
     }
@@ -755,6 +835,9 @@ p {
             padding: 0 16px;
             width: 119px; 
         }
+        .delete_post_button {
+            cursor: pointer;
+        }
     }
 }
 
@@ -842,6 +925,7 @@ p {
         background-color: $whiteColor;
         width: 100%;
         padding: 32px;
+        margin-bottom: 30px;
         .personal_info_holder {
             display: flex; 
             padding-bottom: 29px;
@@ -884,4 +968,6 @@ p {
         }
     }
 }
+
+
 

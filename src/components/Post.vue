@@ -1,13 +1,18 @@
 <template>
   <div class="single_feed_container post_page_container">
-        <div class="post_head">
-            <img />
-            <div class="name_holder">
-                <p class="cus_name">Anon1234</p>
-                <p class="post_date">May 5, 2020</p>
+        <div class="single_post_head">
+            <div class="post_head">
+                <img />
+                <div class="name_holder">
+                    <p class="cus_name">{{ feed.uploadedBy }}</p>
+                    <p class="post_date">{{ feed.created | moment("dddd, MMMM Do YYYY") }}</p>
+                </div>
             </div>
+            <router-link :to="{path: `Feeds/${feed._id}`}" class="feed_upload_button vue_router_link" style="height: 20%;">
+                View Post
+            </router-link>
         </div>
-        <p class="post_title">Fire outbreak in balogun market</p>
+        <p class="post_title">{{ feed.title }}</p>
         <div class="post_images">
 
         </div>
@@ -35,13 +40,39 @@
                 <img src="@/assets/img/flag.png" />
                 Flag report
             </div>
+
+            <img src="@/assets/img/delete.svg" v-if="user" class="delete_post_button" @click="deletePost"/>
         </div>
     </div>
 </template>
 
 <script>
+
+import configObject from "@/config";
+
 export default {
-    name: 'Post'
+    name: 'Post',
+    props: ['feed', 'user'],
+    methods: {
+        deletePost() {
+            this.axios
+                // .delete(`${configObject.apiBaseUrl}/entry`, {...configObject.authConfig, data: { }})
+                .delete(`${configObject.apiBaseUrl}/entry/${this.feed._id}`, configObject.authConfig)
+                .then(response => {
+                    this.$toast('Successfully deleted entry', {
+                        type: "success",
+                        timeout: 3000
+                    });
+                    this.$emit('refresh', this.feed._id)
+                })
+                .catch(error => {
+                    this.$toast(error.response.data.message, {
+                        type: "error",
+                        timeout: 3000
+                    });
+                })
+        }
+    }
 }
 </script>
 

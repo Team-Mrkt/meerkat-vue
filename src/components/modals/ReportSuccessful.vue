@@ -9,8 +9,10 @@
         <h3>Report Successful!!!</h3>
         <p>Your report has now been posted as an anonymous source, but you can create an account and start reporting more incidents in your community and its environs.</p>
         <div>
-            <button class="report_successful_modal_create_account btn_1">Create an account</button>
-            <button class="report_successful_modal_no_thanks btn_1">No thanks</button>
+            <router-link :to="{ name: 'SignUp' }" class="quick_report_button btn_1 vue_router_link report_successful_modal_create_account">
+              Create Account
+            </router-link>
+            <button class="report_successful_modal_no_thanks btn_1" @click="closeModal">No thanks</button>
         </div>
     </div>
   </modal>
@@ -30,6 +32,11 @@ export default {
     created() {
         this.modalWidth = window.innerWidth < MODAL_WIDTH ? MODAL_WIDTH / 2 : MODAL_WIDTH;
     }, 
+    methods: {
+      closeModal() {
+        this.$modal.hide("ReportSuccessfulModal");
+      }
+    }
 }
 </script>
 

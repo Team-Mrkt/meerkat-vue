@@ -19,6 +19,14 @@
                         <button class="edit_account_button btn_3" @click="showEditAccountInfoModal">Edit account information</button>
                     </div>
                 </div>
+
+                <div v-if="feeds.length > 0 && !loading">
+                    <div v-for="(feed, i) in feeds" :key='i'>
+                        <Post :feed="feed" :user="true" @refresh="removePost"/>
+                    </div>
+                </div>
+
+                <clip-loader v-if="loading" :color="color" size="55px"></clip-loader>
             </div>
         </section>
     </div>
@@ -26,24 +34,32 @@
 
 <script>
 
+import configObject from "@/config";
 import Sidebar from '@/components/Sidebar.vue'
 import AddNewLocation from '@/components/modals/AddNewLocation.vue'
 import EditAccountInfo from '@/components/modals/EditAccountInfo.vue'
+import Post from '@/components/Post.vue'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
     name: 'Profile',
     components: {
         Sidebar,
         AddNewLocation,
-        EditAccountInfo
+        EditAccountInfo,
+        Post,
+        ClipLoader
     },
     data() {
         return {
-
+            size: '25px',
+            color: '#544743',
+            loading: false,
+            feeds: [],
         }
     }, 
     created() {
-
+        this.getAllEntries()
     },
     mounted() {
 
@@ -54,6 +70,22 @@ export default {
         },
         showEditAccountInfoModal() {
             this.$modal.show("EditAccountInfoModal");
+        },
+        getAllEntries() {
+            this.loading = true
+            this.axios
+                .get(`${configObject.apiBaseUrl}/users/entry`, configObject.authConfig)
+                .then(response => {
+                    console.log(response.data.data)
+                    this.feeds = response.data.data
+                    this.loading = false
+                })
+                .catch(e => {
+                    this.loading = false
+                })
+        },
+        removePost(id) {
+            this.feeds = this.feeds.filter(cur => cur._id != id)
         }
     }
 }
