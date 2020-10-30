@@ -38,13 +38,13 @@
                     </div>
                 </div>
 
-                <div v-if="feeds.length > 0">
+                <div v-if="!loadingPosts">
                     <div v-for="(feed, i) in feeds" :key='i'>
                         <Post :feed="feed" :user="false"/>
                     </div>
                 </div>
 
-                <clip-loader v-if="!feeds.length" :color="color" size="55px"></clip-loader>
+                <clip-loader :loading="loadingPosts" :color="color" size="55px"></clip-loader>
             </div>
         </section>
     </div>
@@ -65,6 +65,7 @@ export default {
             size: '25px',
             color: '#544743',
             loading: false,
+            loadingPosts: true,
             incidentDetails: {
                 title: '',
                 description: '',
@@ -114,7 +115,7 @@ export default {
             this.loading = true
 
             this.axios
-                .post(`${configObject.apiBaseUrl}/entry`, this.incidentDetails, configObject.authConfig)
+                .post(`${configObject.apiBaseUrl}/users/entry`, this.incidentDetails, configObject.authConfig)
                 .then(response => {
                     this.loading = false
                     this.$toast('Successfully Added Entry', {
@@ -141,12 +142,15 @@ export default {
         },
 
         getAllEntries() {
+            this.loadingPosts = true
             this.axios
                 .get(`${configObject.apiBaseUrl}/entry`, configObject.authConfig)
                 .then(response => {
                     this.feeds = response.data.data
+                    this.loadingPosts = false
                 })
                 .catch(error => {
+                    this.loadingPosts = false
                 })
         }
     }

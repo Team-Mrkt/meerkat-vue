@@ -26,7 +26,7 @@ function configObjectFunc() {
 
       return {
           authConfig: {
-              headers: { 'Content-Type': 'application/json', Authorization: "bearer " + token, 'Accept': 'application/json',  }
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json',  }
           },
           authConfigForUpload: {
             headers: { 'Content-Type': 'multipart/form-data', Authorization: "bearer " + token, 'Accept': '*/*',  }
